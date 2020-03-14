@@ -1,0 +1,23 @@
+ /* 
+    Created on : Mar 14, 2020, 1:36:35 PM
+    Author     : Lahiru Sanka
+*/
+#mainHeader{
+    background-color: #1a385b;
+    width:  97%;
+    height: 40px;
+    margin: 0px 20px 0px 20px;
+}
+#Htext{
+    color: white;
+    margin : 4px 0px 0px 34%;
+     
+}
+#logo{
+    color: white;
+    size: 25px;
+    margin-left: 50px;
+}
+
+
+
