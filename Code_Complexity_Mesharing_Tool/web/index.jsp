@@ -69,12 +69,9 @@
 
                         },
                         success: function(data, textStatus, jqXHR) {
-                          if(data=='Uploaded'){
-                              alert("File Uploaded Successfully")
-                          }else{
-                              
-                              alert(data)
-                          }
+                           
+                              alert(data);
+                         
                              
 
                         },

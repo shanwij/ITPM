@@ -59,7 +59,9 @@ public class main_servlet extends HttpServlet {
                     // String extention = (fileitem.getName().contains(".") ? fileitem.getName().substring(fileitem.getName().lastIndexOf('.')) : "");
                     // String name = System.currentTimeMillis() + "_" + fileitem.getName().hashCode() + extention;
                     if (fileitem.getSize() < 0) {
+                        
                         out.print("Error: No File Found");
+                        
                     } else {
 
                         System.out.println("Directory is Exist!" + fileitem);
@@ -76,6 +78,8 @@ public class main_servlet extends HttpServlet {
                             fos.write(fileitem.get());
                             fos.close();
                             out.print("Uploaded");
+                            
+                             
 
                             try (BufferedReader br = new BufferedReader(new FileReader(path + "Files/" + fileitem.getName()))) {
                                 StringBuilder sb = new StringBuilder();
@@ -86,48 +90,35 @@ public class main_servlet extends HttpServlet {
                                     sb.append(System.lineSeparator());
                                     line = br.readLine();
                                 }
+                                
                                 String everything = sb.toString();
 
-                                String codelines = "";
-                                int ifcount = 0;
-                                int forcount = 0;
-                                int count = 0;
-                                for (String f_line : everything.split("\\n")) {
-                                    f_line = f_line.split("//")[0].trim();
-                                    count++;
-                                    if (f_line.contains("if")) {
-                                        ifcount++;
-                                        codelines += "<tr> <td >"+count+"</td> <td>"+f_line+"</td> <td>2</td> <td>1</td> <td>Ccspps</td> <td>Ccs</td> </tr>"+"\n";
-                                        
-                                        
-                                        System.out.println("ssssssssssssssssssssssssssssssssssssssssssssssss" + f_line);
-                                    }
-                                    else if (f_line.contains("for")) {
-                                        forcount++;
-                                        codelines += "<tr> <td >"+count+"</td> <td>"+f_line+"</td> <td>3</td> <td>1</td> <td>Ccspps</td> <td>Ccs</td> </tr>"+"\n";
-                                         
-                                    }
-                                    else if (f_line.contains("switch")) {
-                                        forcount++;
-                                        codelines += "<tr> <td >"+count+"</td> <td>"+f_line+"</td> <td>2</td> <td>1</td> <td>Ccspps</td> <td>Ccs</td> </tr>"+"\n";
-                                         
-                                    }
-                                    else if (f_line.contains("case")) {
-                                        forcount++;
-                                        codelines += "<tr> <td >"+count+"</td> <td>"+f_line+"</td> <td>1</td> <td>1</td> <td>Ccspps</td> <td>Ccs</td> </tr>"+"\n";
-                                         
-                                    }else{
-                                        codelines += "<tr> <td >"+count+"</td> <td>"+f_line+"</td> <td></td> <td></td> <td>Ccspps</td> <td>Ccs</td> </tr>"+"\n";
-                                       
-                                    }
-                                }
-                                System.out.println("for Count :" + forcount);
-                                System.out.println("IF  Count :" + ifcount);
+//  Calculate contral structure
 
-                                out.print("this one>>>>>" + everything);
-                                System.out.println("------------------------------------------------------------"+codelines);
-                                httpsession.setAttribute("Readfile", codelines);
+                                Calculate_contral_structure ccs = new Calculate_contral_structure();
+                                String Ctrlstruct_calculatedvalue = ccs.calculate(everything);
+                                
+                                //  Calculate Coupling 
+
+
+                                                // add your one here
+
+
+                                //  Calculate  Size, variables, and methods 
+
+
+                                                // add your one here
+
+
+                                //  Calculate Inheritance
+
+                                                // add your one here                 
+
+//                                out.print("this one>>>>>" + everything);
+                                 
+                                httpsession.setAttribute("Readfile", Ctrlstruct_calculatedvalue);
                                 System.out.println("**************session*********" + httpsession.getAttribute("Readfile"));
+                                 
                             }
 
                         }
@@ -137,7 +128,7 @@ public class main_servlet extends HttpServlet {
                 }
 
             } else if (request.getParameter("RqData") != null) {
-                System.out.println("calllllllllllllllllllllllllllll");
+                 
                 out.print(httpsession.getAttribute("Readfile"));
 
             } else {
