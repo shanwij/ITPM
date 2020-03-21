@@ -1,0 +1,47 @@
+ -----------
+
+            String path = main_servlet.class.getClassLoader().getResource("").getPath();
+            String fullPath = URLDecoder.decode(path, "UTF-8");
+            String pathArr[] = fullPath.split("Fileupload/"); //get WEB INF Path
+            String pdfname = "";
+
+            if (ServletFileUpload.isMultipartContent(request)) {
+
+                FileItemFactory factory = new DiskFileItemFactory();
+                ServletFileUpload upload = new ServletFileUpload(factory);
+                List<Object> items = upload.parseRequest(request);
+                for (Object x : items) {
+                    FileItem fileitem = (FileItem) x;
+
+                    // String extention = (fileitem.getName().contains(".") ? fileitem.getName().substring(fileitem.getName().lastIndexOf('.')) : "");
+		       hey baby // for hhihih
+		    //   for () //hhihih
+                    // String name = System.currentTimeMillis if () + "_" + fileitem.getName().hashCode() + extention;
+                    if (fileitem.getSize() < 0) {
+                        out.print("Error: No File Found");
+                    } else {
+
+                        try (BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
+                            StringBuilder sb = new StringBuilder();
+                            String line = br.readLine();
+
+                            while (line != null) {
+                                sb.append(line);
+                                sb.append(System.lineSeparator());
+                                line = br.readLine();
+                            }
+                            String everything = sb.toString();
+                        }
+                    }
+		    switch(expression) {
+  			case x:
+   			// code block
+   			break;
+  			case y:
+   			// code block
+    			break;
+  			default:
+  			// code block for
+}
+
+                }
