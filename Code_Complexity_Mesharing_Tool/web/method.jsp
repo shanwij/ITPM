@@ -1,50 +1,49 @@
 <%-- 
-    Document   : size
-    Created on : Mar 20, 2020, 9:13:49 PM
+    Document   : method
+    Created on : Mar 24, 2020, 7:28:45 PM
     Author     : Laskshan Wijewardana
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">   
+   <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link rel="stylesheet" href="css/SizeVariablesMethod.css">
         <title>JSP Page</title>
     </head>
     <body>
-       <%@include file="header.jsp" %>
+        <%@include file="header.jsp" %>
        
        
         <div id="SizeDiv">
 
-            <br><p  class="text-center"> <b>Code Complexity Measuring Of Your Program Due to Size </b></p>
+            <br><p  class="text-center"> <b>Code Complexity Measuring Of Your Program Due to Method </b></p>
 
             <div class="progress" id="progressbar">
                 <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:33.3%;height:20px"></div>
             </div> 
 
             <div id="scrol">
-                <table id="ctrlSize" class="table-bordered table-striped" >
-                    <tbody><tr>
-                        <th style="width: 70px;" >Line No</th>
+                <table id="MethTable" class="table-bordered table-striped" >
+                    <tr>
+                        <th style="width: 65px;" >Line No</th>
                         <th>Program Statements</th>
-                        <th style="width: 60px;">Nkw</th>
-                        <th style="width: 60px;">Nid</th>
-                        <th style="width: 60px;">Nop</th>
-                        <th style="width: 60px;">Nnv</th>
-                        <th style="width: 60px;">Nsl</th>
-                        <th style="width: 60px;">Cs</th>
+                        <th style="width: 60px;">Wmrt</th>
+                        <th style="width: 60px;">Npdtp</th>
+                        <th style="width: 60px;">Ncdtp</th>
+                        <th style="width: 60px;">Cm</th>
                     </tr>
                       
-                    </tbody> -->
+                    </tbody>
+                    
                 </table>
 
             </div>
             
             <div>
-              <a class="btn btn-info" href="http://localhost:8083/Code_Complexity_Mesharing_Tool/method.jsp">&laquo; Method</a>                 
+              <a class="btn btn-info" href="http://localhost:8083/Code_Complexity_Mesharing_Tool/size.jsp">&laquo; Size</a>                 
               <a style="float:right; margin-right:15px;"class="btn btn-info" href="http://localhost:8083/Code_Complexity_Mesharing_Tool/variables.jsp">Variables &raquo;</a>           
             </div>
             <br>
@@ -54,28 +53,28 @@
 
                 </tr>
                 <tr>
-                    <td >Nkw</td>
-                    <td>= Number of keywords or reserved words in the program statement </td>
+                    <td >Cm</td>
+                    <td>= Complexity of a line which includes a method </td>
                 </tr>
                 <tr>
-                    <td>Nid</td>
-                    <td>= Number of identifiers in the program statement </td>
+                    <td>Wmrt</td>
+                    <td>= Weight due to method return type </td>
                 </tr>
                 <tr>
-                    <td>Nop</td>
-                    <td>= Number of operators in the program statement</td>
+                    <td>Wpdtp</td>
+                    <td>= Weight of primitive data type parameters</td>
                 </tr>
                 <tr>
-                    <td>Nnv</td>
-                    <td>= Number of numerical values in the program statement </td>
+                    <td>Npdtp</td>
+                    <td>= Number of primitive data type parameters </td>
                 </tr>
                  <tr>
-                    <td>Nsl</td>
-                    <td>= Number of string literals in the program statement </td>
+                    <td>Wcdtp</td>
+                    <td>= Weight of composite data type parameters </td>
                 </tr>
                  <tr>
-                    <td>Cs</td>
-                    <td>= Complexity of a program statement due to its size </td>
+                    <td>Ncdtp</td>
+                    <td>= Number of composite data type parameters </td>
                 </tr>
             </table>
             <p id="tt"></p>
@@ -108,13 +107,13 @@
                         var res = xmlHttp.responseText;
                          
                          
-                         $("#ctrlSize").find('tbody').append(res);
+                         $("#MethTable").find('tbody').append(res);
 
                     }
                 };
                 xmlHttp.open("POST", "main_servlet", true);
                 xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xmlHttp.send("RqSize=FillForm&ctrl=ctrl ");
+                xmlHttp.send("RqMeth=FillForm&ctrl=ctrl");
             }
 
 

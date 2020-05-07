@@ -1,0 +1,62 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 24, 2020, 7:38:31 PM
+    Author     : Laskshan Wijewardana
+*/
+
+#SizeDiv{
+    width: 97%;
+    background-color: #dadbe3;     
+    margin: 0px 20px 0px 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    float: left;
+}
+#progressbar{
+    margin-top: 25px;
+    height: 5px;
+    width: 98.3%;
+}
+#scrol{
+    width: 98.3%;
+    height: 400px;
+    overflow: scroll;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#ctrlSize th{
+     margin-left: 2%;
+     margin-right: 2%;
+     background-color: #8b98ff;
+}
+#ctrlSize{
+    width: 100%;
+}
+#VariTable th{
+     margin-left: 2%;
+     margin-right: 2%;
+     background-color: #8b98ff;
+}
+#VariTable{
+    width: 100%;
+}
+#MethTable th{
+     margin-left: 2%;
+     margin-right: 2%;
+     background-color: #8b98ff;
+}
+#MethTable{
+    width: 100%;
+}
+#abbreviationtbl{
+    width: 98.3%;
+    margin-bottom: 20px;
+}
+
+#abbreviationtbl th{
+    background-color: #8b98ff;
+}
